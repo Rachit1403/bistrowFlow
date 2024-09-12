@@ -9,6 +9,9 @@ import { Injectable } from '@angular/core';
 // const SIGN_UP_API_URL = `${environment.backendBaseUrl}/user/signup`;
 // const LOG_IN_API_URL = `${environment.backendBaseUrl}/user/login`;
 
+const SIGN_UP_API_URL = `${process.env["API_URL"]}/user/signup`;
+const LOG_IN_API_URL = `${process.env["API_URL"]}/user/login`;
+
 @Injectable({
   providedIn: 'root'
 })
