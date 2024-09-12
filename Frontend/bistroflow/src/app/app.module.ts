@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
 import { Routes } from '@angular/router';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BaseChartDirective } from 'ng2-charts';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -38,29 +38,22 @@ const routes: Routes = [
 
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    OrdercountComponent,
-    MonthSalesComponent,
-    CategoryComponentsComponent,
-    CategoryComponent,
-    ProductComponent,
-    OrderComponent,
-    NewSignupComponent,
-    NewLoginComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot(routes),
-    BaseChartDirective,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
-  providers: [provideCharts(withDefaultRegisterables()), {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
-  bootstrap: [AppComponent,CategoryComponent,ProductComponent,ServicesService]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        DashboardComponent,
+        OrdercountComponent,
+        MonthSalesComponent,
+        CategoryComponentsComponent,
+        CategoryComponent,
+        ProductComponent,
+        OrderComponent,
+        NewSignupComponent,
+        NewLoginComponent
+    ],
+    bootstrap: [AppComponent, CategoryComponent, ProductComponent, ServicesService], imports: [BrowserModule,
+        AppRoutingModule,
+        RouterModule.forRoot(routes),
+        BaseChartDirective,
+        FormsModule,
+        ReactiveFormsModule], providers: [provideCharts(withDefaultRegisterables()), { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
