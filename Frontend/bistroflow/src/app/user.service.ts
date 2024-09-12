@@ -1,14 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
 
 //Defining Springboot API routes
 // const SIGN_UP_API_URL = 'http://localhost:8080/api/v1/user/signup';
 // const LOG_IN_API_URL = 'http://localhost:8080/api/v1/user/login';
 
-const SIGN_UP_API_URL = `${environment}/user/signup`;
-const LOG_IN_API_URL = `${environment}/user/login`;
+// const SIGN_UP_API_URL = `${environment.backendBaseUrl}/user/signup`;
+// const LOG_IN_API_URL = `${environment.backendBaseUrl}/user/login`;
 
 @Injectable({
   providedIn: 'root'

@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserOrderCount } from '../Models/userordercount'
 import {SalesData} from '../Models/categorysales'
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicesService {
 
-  private baseURL = `${environment}/api/v1/analytics`;
+  //private baseURL = `${environment.backendBaseUrl}/api/v1/analytics`;
+  private baseURL = `http://localhost:8080/api/v1/analytics`;
 
   constructor(private httpClient: HttpClient) { }
 
